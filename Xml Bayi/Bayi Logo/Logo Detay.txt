@@ -1,0 +1,5 @@
+Logo Renk Kodu : #192436
+RGB : 25 36 54 
+Font: Spectral SC
+Çizgi kalınlığı :174,2 px
+Yatık Rigel Yıldızı
