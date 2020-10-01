@@ -1,0 +1,31 @@
+Video'da Yer Alan Kodlar ;
+
+Dim iRow As Long
+Dim ws As Worksheet
+Set ws = Worksheets("Sayfa1")
+
+'find first empty row in database
+iRow = ws.Cells.Find(What:="*", SearchOrder:=xlRows, _
+    SearchDirection:=xlPrevious, LookIn:=xlValues).Row + 1
+
+'check for a Name number
+If Trim(Me.TextBox_ad.Value) = "" Then
+  Me.TextBox_ad.SetFocus
+  MsgBox "Lütfen Formu Doldurun"
+  Exit Sub
+End If
+
+'copy the data to the database
+ws.Cells(iRow, 1).Value = Me.TextBox_ad.Value
+ws.Cells(iRow, 2).Value = Me.TextBox_soyad.Value
+ws.Cells(iRow, 3).Value = Me.TextBox_yas.Value
+ws.Cells(iRow, 4).Value = Me.TextBox_cinsiyet.Value
+
+MsgBox "KAYIT YAPILDI", vbOKOnly + vbInformation, "Veri Kaydedildi"
+'clear the data
+Me.TextBox_ad.Value = ""
+Me.TextBox_soyad.Value = ""
+Me.TextBox_yas.Value = ""
+Me.TextBox_cinsiyet.Value = ""
+Me.TextBox_ad.SetFocus
+End Sub
